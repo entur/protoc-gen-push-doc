@@ -38,6 +38,7 @@ jobs:
   build:
     docker:
       - image: cimg/base:2020.01
+        user: root
     steps:
       - checkout
       - run: tools/gcloud_install.sh
