@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-VER="218.0.0-linux-x86_64"
+VER="306.0.0-linux-x86_64"
 wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${VER}.tar.gz
 tar -xvzf google-cloud-sdk-${VER}.tar.gz
 ./google-cloud-sdk/install.sh -q
