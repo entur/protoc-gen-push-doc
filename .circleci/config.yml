@@ -56,4 +56,4 @@ workflows:
   build-protoc-gen-push-doc-image:
     jobs:
       - build:
-          context: global
+          context: dev
