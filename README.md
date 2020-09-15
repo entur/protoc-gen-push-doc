@@ -21,7 +21,7 @@ This image features [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-do
 
     ```
 
-2. Create job that uses the previously defined executor, generates docs using `protoc` (see [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc)) and pushes the docs back to the branch.
+2. Create job that uses the previously defined executor, generates docs using `protoc` (see [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc)) and pushes the docs back to branch XXX.
     ```config.yml
     protoc-gen-push-doc:
     executor: protoc-gen-push-doc
@@ -33,7 +33,7 @@ This image features [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-do
           command: |
             git config --global user.email "circleci@entur.no"
             git config --global user.name "EnturCircleCi"
-            if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+            if [ "$CIRCLE_BRANCH" = "XXX" ] && [ "$(git status --porcelain=v1 --untracked-files=no 2>/dev/null | wc -l )" != '0' ]; then
               echo "Updating api.mdx in repo"
               git add docs/api.mdx
               git commit -m "Updated generated api.mdx [ci skip]"
