@@ -38,6 +38,9 @@ jobs:
   build:
     docker:
       - image: cimg/base:2020.01
+        auth:
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
         user: root
     steps:
       - checkout
@@ -45,6 +48,7 @@ jobs:
       - run: *GCP-auth
       - setup_remote_docker:
           docker_layer_caching: true
+          version: 19.03.13
       - run: *docker-login
       - run: *docker-build-and-push
 
